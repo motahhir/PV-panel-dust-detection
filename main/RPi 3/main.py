@@ -21,7 +21,7 @@ GPIO.output(DIR, 1) #CLOCKWISE DIRECTION
 keywords=['Clouds','Clear']
 
 def check_weather():
-	link="http://api.openweathermap.org/data/2.5/weather?q=Fes&appid=81856d49dfb92c91b514afcef157345f&units=metric"
+	link="http://api.openweathermap.org/data/2.5/weather?q=Fes&appid="+APIkey+"&units=metric"
 	weather=requests.get(link)
 	data=weather.json()
 	main=data['weather']
