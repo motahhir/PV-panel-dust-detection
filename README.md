@@ -35,7 +35,7 @@ Some of the advantages of using this particular method of cleaning instead of tr
 
 ## Requirements
 - To install Micropython on ESP32: https://pythonforundergradengineers.com/how-to-install-micropython-on-an-esp32.html
-- Library used to access thefile system on ESP32: https://github.com/wendlers/mpfshell
+- Library used to access the file system on ESP32: https://github.com/wendlers/mpfshell
 
 
 ## Contributing
