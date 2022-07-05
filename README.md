@@ -33,6 +33,9 @@ Some of the advantages of using this particular method of cleaning instead of tr
 - The libraries used and initial setup on the Raspberry Pi:
 ![image](https://user-images.githubusercontent.com/104909670/175552228-cc0edcfc-2238-478d-8edf-395a6db231b0.png)
 
+## Requirements
+- To install Micropython on ESP32: https://pythonforundergradengineers.com/how-to-install-micropython-on-an-esp32.html
+- Library used to access the file system on ESP32: https://github.com/wendlers/mpfshell
 
 
 ## Contributing
