@@ -32,9 +32,9 @@ def asm_feature(matrix_coocurrence):
 
 class Photo:
     df=pd.DataFrame(columns = ['Contrast','Dissimilarity','Homogeneity','Energy','Correlation','ASM'])
-    def __init__(self, path,matrix_coocurrence=None):
+    def __init__(self, path):
         self.path=path
-        self.matrix_coocurrence=matrix_coocurrence
+        self.matrix_coocurrence=self.computeGLCM()
         
     def display(self):
         plt.tight_layout()
@@ -49,7 +49,7 @@ class Photo:
         plt.title('Input Image'), plt.xticks([]), plt.yticks([])
         plt.subplot(122),plt.imshow(thresh,'gray')
         plt.imsave(r'thresh.png',thresh)
-        plt.title('Otsu binary thresholding'), plt.xticks([]), plt.yticks([])
+        plt.title('Thresholded image'), plt.xticks([]), plt.yticks([])
     
     def computeGLCM(self):
         imgthresh='thresh.png'
@@ -57,15 +57,11 @@ class Photo:
         bins = np.array([0, 16, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 255])
         inds = np.digitize(img, bins)
         max_value = inds.max()+1
-        self.matrix_coocurrence = greycomatrix(inds, [1], [0, np.pi/4, np.pi/2, 3*np.pi/4], levels=max_value, normed=False, symmetric=False)
+        return greycomatrix(inds, [1], [0, np.pi/4, np.pi/2, 3*np.pi/4], levels=max_value, normed=False, symmetric=False)
     
     def checkfordust(self):
-        if (contrast_feature(self.matrix_coocurrence)<=0.7):
-            return False
-        else:
-            return True
-
-            
+        return (contrast_feature(self.matrix_coocurrence)>0.7)
+     
     def append2df(self):
         Photo.df=Photo.df.append({'Contrast':contrast_feature(self.matrix_coocurrence), 'Dissimilarity':dissimilarity_feature(self.matrix_coocurrence),
                                   'Homogeneity':homogeneity_feature(self.matrix_coocurrence), 'Energy': energy_feature(self.matrix_coocurrence),
