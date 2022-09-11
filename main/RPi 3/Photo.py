@@ -34,7 +34,6 @@ class Photo:
     df=pd.DataFrame(columns = ['Contrast','Dissimilarity','Homogeneity','Energy','Correlation','ASM'])
     def __init__(self, path):
         self.path=path
-        self.matrix_coocurrence=self.computeGLCM()
         
     def display(self):
         plt.tight_layout()
@@ -57,7 +56,8 @@ class Photo:
         bins = np.array([0, 16, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 255])
         inds = np.digitize(img, bins)
         max_value = inds.max()+1
-        return greycomatrix(inds, [1], [0, np.pi/4, np.pi/2, 3*np.pi/4], levels=max_value, normed=False, symmetric=False)
+        self.matrix_coocurrence= greycomatrix(inds, [1], [0, np.pi/4, np.pi/2, 3*np.pi/4], levels=max_value, normed=False, symmetric=False)
+        return self.matrix_coocurrence
     
     def checkfordust(self):
         return (contrast_feature(self.matrix_coocurrence)>0.7)
