@@ -2,7 +2,7 @@
 ![contributors](https://img.shields.io/badge/Contributors-MOTAHHIR%20Saad%2C%20KERBOUT%20Jihad%2C%20JOUBITI%20Achraf-blue)
 
 
-This project is the implementation of the following [patent](https://patentimages.storage.googleapis.com/93/82/17/ef07e9b79573fc/WO2022019735A1.pdf), it presents the inital prototype of an automated device for the cleaning of a photovoltaic panel.
+This project is the implementation of the following [patent](https://patentimages.storage.googleapis.com/93/82/17/ef07e9b79573fc/WO2022019735A1.pdf), it presents the initial prototype of an automated device for the cleaning of a photovoltaic panel.
 
 ## Overview
 The device consists of a roll of flexible transparent film paper that is driven between two cylinders with a motor, a round microfiber brush will be used to ensure effective cleaning. The system uses a small electronic board to automatically turn on the motor.
